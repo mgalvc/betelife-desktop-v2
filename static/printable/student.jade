@@ -1,0 +1,222 @@
+doctype html
+html(lang="pt-BR")
+	head
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
+	body
+
+		.container
+			header
+				.row
+					.col-2
+						img(src="https://i.imgur.com/QfPBOXZ.png")
+					.col-7
+						.info
+							p.first Entidade Beneficente Betel
+							p.sec Rua Ibituba, nº 6 - Mangabeira - Feira de Santana - BA
+							p.sec Fone: (75) 3626-6835/982823820/982850237
+							p.sec.last Ações do amor de Deus por uma vida com mais oportunidade
+					.col-3
+						.photo
+							p Foto 3x4
+				p 
+					h2 Ficha de Cadastro
+					h3 Aluno
+			.row
+				.col
+					p
+						span(class="detail") Nome: 
+							span #{aluno.name}
+				.col
+					p
+						span(class="detail") Data de nascimento: 
+							span #{aluno.birthdate}
+				.col
+					p		
+						span(class="detail") Idade: 
+							span #{aluno.age}
+			.row
+				.col
+					p
+						span(class="detail") Pai: 
+							span #{aluno.father}
+				.col 
+					p
+						span(class="detail") Profissão: 
+							span #{aluno.job_father}
+				.col
+					p
+						span(class="detail") Religião: 
+							span #{aluno.religion_father}
+			.row
+				.col
+					p
+						span(class="detail") Mãe: 
+							span #{aluno.mother}
+				.col
+					p
+						span(class="detail") Profissão: 
+							span #{aluno.job_mother}
+				.col
+					p
+						span(class="detail") Religião: 
+							span #{aluno.religion_mother}
+			.row
+				.col		
+					p
+						span(class="detail") Endereço: 
+							span #{aluno.address}
+				.col
+					p
+						span(class="detail") Telefone: 
+							span #{aluno.phone}
+				.col					
+					p
+						span(class="detail") Mora com: 
+							span #{aluno.lives_with}
+			.row
+				.col 
+					p
+						span(class="detail") Escola: 
+							span #{aluno.school}
+				.col 
+					p
+						span(class="detail") Série: 
+							span #{aluno.grade}
+				.col
+					p
+						span(class="detail") É repetente: 
+							if aluno.repeat_student
+								span Sim
+							else
+								span Não
+			.row
+				.col
+					p
+						span(class="detail") Responsável pela inscrição: 
+							span #{aluno.responsible}
+				.col
+					p
+						span(class="detail") RG do responsável: 
+							span #{aluno.responsible_rg}
+			.row
+				.col
+					p
+						span(class="detail") Já é aluno do projeto: 
+							if aluno.prev_student
+								span Sim
+							else
+								span Não
+				.col
+					p
+						span(class="detail") Remédio para febre: 
+							span #{aluno.fever_drug}
+			.row
+				.col
+					p
+						span(class="detail") Problema de saúde: 
+							if aluno.health_issue
+								span #{aluno.which_health_issue}
+							else
+								span Não possui
+				.col
+					p
+						span(class="detail") Medicamentos utilizados:  
+							if aluno.use_medicine
+								span #{aluno.which_medicine}
+							else 
+								span Não utiliza
+			.row
+				.col
+					p
+						span(class="detail") Recomendações da família:  
+							span #{aluno.family_reco}
+				.col
+					p
+						span(class="detail") Quem busca: 
+							if aluno.home_alone
+								span Retorna sozinho
+							else
+								span #{aluno.who_takes_home}
+			.row
+				.col
+					p
+						span(class="detail") Data do cadastro: 
+							span #{cadastro}
+
+			.footer
+				.row
+					.col
+						p Feira de Santana, #{hoje}
+				.row
+					.col.sign
+						p ___________________________________________
+						p Assinatura do responsável
+
+		style.
+			@media print {
+				@page { 
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+			}
+
+			header {
+				width: 100%;
+				text-align: center;
+				margin-top: 30px;
+			}
+
+			img {
+				width: 3cm;
+				margin-top: 50%;
+			}
+
+			.info {
+				font-size: 0.9em;
+				margin-top: 30px;
+			}
+
+			.first {
+				font-weight: bold;
+			}
+
+			.sec {
+				line-height: 4px;
+			}
+
+			.last {
+				font-size: 0.8em;
+				font-style: italic;
+			}
+
+			.photo {
+				border: 1px solid #CCC;
+				border-radius: 5px;
+				width: 3cm;
+				height: 4cm;
+			}
+
+			.photo p {
+				margin-top: 50%;
+				color: #BBB;
+			}
+
+			.footer {
+				text-align: center;
+				margin-top: 50px;
+			}
+
+			.sign {
+				margin-top: 30px;
+				line-height: 3px;
+			}
+
+			.detail {
+				font-weight: bold;
+				display: inline-block;
+			}
+
+			.detail span {
+				font-weight: normal;
+			}
+			
