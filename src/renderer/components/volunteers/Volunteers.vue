@@ -25,6 +25,7 @@
                     </sui-table-cell>
                     <sui-table-cell>
                         <sui-button inverted color="blue" @click="openModal(volunteer.id)"><v-icon name="info-circle" /></sui-button>
+                        <sui-button @click="printPDF(volunteer.id)" inverted color="blue"><v-icon name="print" /></sui-button>
                     </sui-table-cell>
                 </sui-table-row>
             </sui-table-body>
@@ -36,6 +37,8 @@
 
 <script>
     import VolunteerDetail from './VolunteerDetail'
+    const electron = require('electron')
+    const BrowserWindow = electron.remote.BrowserWindow
 
     export default {
         components: {
@@ -69,6 +72,21 @@
                     this.volunteers = response;
                     this.modal = false;
                 });
+            },
+            printPDF(id) {
+                this.$printVolunteer(id, html => {
+                    let page = new BrowserWindow()
+                    page.loadURL("data:text/html;charset=utf-8," + encodeURI(html))
+                    
+                    page.webContents.on('did-finish-load', ()=>{
+                        page.show();
+                        page.focus();
+                        
+                        page.webContents.print({}, success => {
+                            console.log(success)
+                        })
+                    });
+                })
             }
         }
     }

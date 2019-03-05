@@ -10,7 +10,7 @@ import { storeData } from './store'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 
-import { howMany, getStudents, getStudent, printStudent, deleteStudent, saveStudent, updateStudent, updateStudentStatus, getVolunteer, updateVolunteerStatus, deleteVolunteer, getVolunteers, saveVolunteer, updateVolunteer} from './database/database'
+import { howMany, getStudents, getStudent, printStudent, printVolunteer, deleteStudent, saveStudent, updateStudent, updateStudentStatus, getVolunteer, updateVolunteerStatus, deleteVolunteer, getVolunteers, saveVolunteer, updateVolunteer} from './database/database'
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -26,6 +26,7 @@ Vue.prototype.$howMany = howMany;
 Vue.prototype.$getStudents = getStudents;
 Vue.prototype.$getStudent = getStudent;
 Vue.prototype.$printStudent = printStudent;
+Vue.prototype.$printVolunteer = printVolunteer;
 Vue.prototype.$deleteStudent = deleteStudent;
 Vue.prototype.$saveStudent = saveStudent;
 Vue.prototype.$updateStudent = updateStudent;

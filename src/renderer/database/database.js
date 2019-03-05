@@ -118,6 +118,17 @@ export function printStudent(id, callback) {
 	})
 }
 
+export function printVolunteer(id, callback) {
+	Volunteer.findOne({ '_id': id }).exec((err, volunteer) => {
+		let submitDate = dateParser.format(volunteer.created_date, 'DD/MM/YYYY')
+		let today = dateParser.format(Date.now(), 'DD [de] MMMM [de] YYYY', { locale: locale })
+		
+		let htlm = jade.renderFile(__static + '/printable/volunteer.jade', { voluntario: volunteer, cadastro: submitDate, hoje: today})
+
+		callback(htlm)
+	})
+}
+
 export function deleteStudent(id, callback) {
 	Student.findByIdAndRemove(id).exec((err, done) => {
 		callback(done)
